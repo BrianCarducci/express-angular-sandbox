@@ -33,7 +33,7 @@ app.post('/api/courses', (req, res) => {
     };
     const result = Joi.validate(req.body, schema);
     if (result.error) {
-        res.status(400).send('Name is required and should be a minimum of 3 characters');
+        res.status(400).send(result.error);
         return;
     }
     const course = {
